@@ -38,7 +38,6 @@ class HomePage extends StatelessWidget {
                 alignment: Alignment.center,
                 height: 300,
                 width: 300,
-                color: Colors.blue,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
