@@ -9,6 +9,10 @@ class FirstPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("FirstPage"),
       ),
+      body: Center(
+        child: Image.network(
+            "https://storage.mantan-web.jp/images/2022/09/16/20220916dog00m200092000c/001_size10.jpg"),
+      ),
     );
   }
 }

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/cardview.dart';
+import 'package:flutter_application_1/imagecard.dart';
+import 'package:flutter_application_1/routers.dart';
 import 'package:flutter_application_1/firstpage.dart';
 import 'package:flutter_application_1/nextpage.dart';
 import 'package:flutter_application_1/secondpage.dart';
@@ -26,6 +29,30 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ButtonStyle style =
+        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    final Routers routers = Routers.shared;
+    List<Color> listColors = [
+      Colors.blue,
+      Colors.grey,
+      Colors.blueAccent,
+      Colors.greenAccent,
+      Colors.green
+    ];
+    List<String> listTitle = [
+      "Flutter1",
+      "Flutter2",
+      "Flutter3",
+      "Flutter4",
+      "Flutter5"
+    ];
+    List<StatelessWidget> listPage = [
+      const NextPage(),
+      const FirstPage(),
+      SecondPage(),
+      const NextPage(),
+      const FirstPage()
+    ];
     return Scaffold(
       appBar: AppBar(
         title: const Text("Let's Flutter World!!"),
@@ -33,160 +60,22 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Center(
-              child: Container(
-                alignment: Alignment.center,
-                height: 300,
-                width: 300,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const Text(
-                      "Flutter!!",
-                      style: TextStyle(fontSize: 40),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const NextPage(),
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        "onpressed!!",
-                        style: TextStyle(fontSize: 40),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Center(
-              child: Container(
-                alignment: Alignment.center,
-                height: 300,
-                width: 300,
-                color: Colors.blueGrey,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const Text(
-                      "Flutter!!",
-                      style: TextStyle(fontSize: 40),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const FirstPage(),
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        "onpressed!!",
-                        style: TextStyle(fontSize: 40),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Center(
-              child: Container(
-                alignment: Alignment.center,
-                height: 300,
-                width: 300,
-                color: Colors.blueAccent,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const Text(
-                      "Flutter!!",
-                      style: TextStyle(fontSize: 40),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SecondPage(),
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        "onpressed!!",
-                        style: TextStyle(fontSize: 40),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Center(
-              child: Container(
-                alignment: Alignment.center,
-                height: 300,
-                width: 300,
-                color: Colors.greenAccent,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const Text(
-                      "Flutter!!",
-                      style: TextStyle(fontSize: 40),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const NextPage(),
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        "onpressed!!",
-                        style: TextStyle(fontSize: 40),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Center(
-              child: Container(
-                alignment: Alignment.center,
-                height: 300,
-                width: 300,
-                color: Colors.lightGreen,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const Text(
-                      "Flutter!!",
-                      style: TextStyle(fontSize: 40),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const NextPage(),
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        "onpressed!!",
-                        style: TextStyle(fontSize: 40),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            for (int i = 0; i < 5; i++)
+              CardView(
+                  title: listTitle.elementAt(i),
+                  colors: listColors.elementAt(i),
+                  pressed: () {
+                    routers.pushPages(context, listPage.elementAt(i));
+                  }),
+            ImageCard(
+                imageLink:
+                    "https://storage.mantan-web.jp/images/2022/09/16/20220916dog00m200092000c/001_size10.jpg",
+                title: "2期おめでとう！！",
+                colors: Colors.blue,
+                style: style,
+                pressed: () {
+                  routers.pushPages(context, listPage.elementAt(1));
+                })
           ],
         ),
       ),

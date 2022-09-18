@@ -10,7 +10,7 @@ class NextPage extends StatelessWidget {
         title: const Text("NextPage"),
       ),
       backgroundColor: Colors.deepPurple,
-      body: Center(),
+      body: const Center(),
     );
   }
 }

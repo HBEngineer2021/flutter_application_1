@@ -5,7 +5,18 @@ import 'package:flutter_application_1/nextpage.dart';
 class SecondPage extends StatelessWidget {
   SecondPage({super.key});
 
-  List<String> titleList = ["flutter", "swift", "java", "kotlin", "ruby"];
+  List<String> titleList = [
+    "flutter",
+    "swift",
+    "java",
+    "kotlin",
+    "ruby",
+    "php",
+    "C",
+    "C++",
+    "C#",
+    "typescript",
+  ];
 
   List<StatelessWidget> pageList = [
     const NextPage(),
