@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/cardview.dart';
 import 'package:flutter_application_1/imagecard.dart';
+import 'package:flutter_application_1/imagelinks.dart';
 import 'package:flutter_application_1/routers.dart';
 import 'package:flutter_application_1/firstpage.dart';
 import 'package:flutter_application_1/nextpage.dart';
@@ -31,7 +32,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final ButtonStyle style = ElevatedButton.styleFrom(
         textStyle: const TextStyle(fontSize: 20),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)));
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        foregroundColor: Colors.white);
     final Routers routers = Routers.shared;
     List<Color> listColors = [
       Colors.blue,
@@ -69,8 +71,7 @@ class HomePage extends StatelessWidget {
                     routers.pushPages(context, listPage.elementAt(i));
                   }),
             ImageCard(
-                imageLink:
-                    "https://storage.mantan-web.jp/images/2022/09/16/20220916dog00m200092000c/001_size10.jpg",
+                imageLink: ImageLinks.bisquedoll.path,
                 title: "2期おめでとう！！",
                 colors: Colors.blue,
                 style: style,
