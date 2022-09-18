@@ -29,8 +29,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    final ButtonStyle style = ElevatedButton.styleFrom(
+        textStyle: const TextStyle(fontSize: 20),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)));
     final Routers routers = Routers.shared;
     List<Color> listColors = [
       Colors.blue,
